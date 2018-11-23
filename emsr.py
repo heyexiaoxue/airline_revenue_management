@@ -10,7 +10,6 @@ EMSR-b: 假设被一个额外预定所替代的乘客支付的票价，等于未
 """
 
 from __future__ import division
-import numpy as np
 from scipy.stats import norm
 import math
 
