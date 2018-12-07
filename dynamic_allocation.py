@@ -86,6 +86,13 @@ def request_seat(booking_limit, level, seat_class, seats_num):
     return booking_limit, status
 
 
+def request_seat_must_accept(booking_limit, level, seat_class, seats_num):
+    status = ('Reject' if booking_limit[seat_class] < seats_num else 'Accept')
+    # 更新状态 如果被拒绝，也忽略掉，直接更新
+    booking_limit = [0 if item <seats_num else item - seats_num for item in booking_limit]
+    return booking_limit, status
+
+
 if __name__ == '__main__':
     res_lvl = [27, 88, 96, 100, 100]
     level = 5
